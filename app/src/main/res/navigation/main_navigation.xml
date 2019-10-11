@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.lam.quan.intuitrepo.ui.main.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/main_fragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_repoListItemFragment"
+            app:destination="@id/repoListItemFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/repoListItemFragment"
+        android:name="com.lam.quan.intuitrepo.ui.repolist.RepoListItemFragment"
+        android:label="fragment_repolistitem_list"
+        tools:layout="@layout/fragment_repolistitem_list" >
+        <action
+            android:id="@+id/action_repoListItemFragment_to_repoDetailFragment"
+            app:destination="@id/repoDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/repoDetailFragment"
+        android:name="com.lam.quan.intuitrepo.ui.repodetail.RepoDetailFragment"
+        android:label="repo_detail_fragment"
+        tools:layout="@layout/repo_detail_fragment" >
+        <action
+            android:id="@+id/action_repoDetailFragment_to_issuesRepoListFragment"
+            app:destination="@id/issuesRepoListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/issuesRepoListFragment"
+        android:name="com.lam.quan.intuitrepo.ui.issueslist.IssuesListFragment"
+        android:label="fragment_issuesitem_list"
+        tools:layout="@layout/fragment_issuesitem_list" >
+        <action
+            android:id="@+id/action_issuesRepoListFragment_to_issueDetailFragment"
+            app:destination="@id/issueDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/issueDetailFragment"
+        android:name="com.lam.quan.intuitrepo.ui.issuedetail.IssueDetailFragment"
+        android:label="issue_detail_fragment"
+        tools:layout="@layout/issue_detail_fragment" />
+</navigation>

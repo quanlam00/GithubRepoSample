@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">IntuitRepo</string>
+    <string name="load_repo">Load Repo</string>
+    <string name="mainfragment">MainFragment</string>
+    <string name="reponame">Repo Name</string>
+    <string name="repodescription">Repo Description</string>
+    <string name="watch">Watch</string>
+    <string name="fork">Fork</string>
+    <string name="star">Star</string>
+    <string name="date_created">Date Created</string>
+    <string name="date_updated">Date Updated</string>
+    <string name="size">Size</string>
+    <string name="issues_count">Issues Count</string>
+    <string name="view_issues_list">View Issues List</string>
+    <string name="number">Number</string>
+    <string name="state">State</string>
+    <string name="locked">Locked</string>
+    <string name="title">Title:</string>
+</resources>

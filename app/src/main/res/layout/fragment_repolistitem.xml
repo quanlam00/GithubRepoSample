@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/repo_item_background"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:padding="@dimen/text_margin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:text="@string/reponame"
+        android:textColor="#3F51B5" />
+
+    <TextView
+        android:id="@+id/item_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:text="@string/repodescription"
+        android:textAppearance="?attr/textAppearanceListItem" />
+</LinearLayout>
