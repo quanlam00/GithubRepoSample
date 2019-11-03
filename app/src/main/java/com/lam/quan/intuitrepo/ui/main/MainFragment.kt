@@ -52,19 +52,20 @@ class MainFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                    { result -> onResultFetched(result) },
+                    { result -> onResultFetched(name, result) },
                     { error -> onResultError(error.message) }
                 )
     }
 
-    private fun onResultFetched(list:List<Repo>) {
+    private fun onResultFetched(ownerName: String, list:List<Repo>) {
         val bundle = bundleOf(NavigationExtraArgsConstants.REPO_LIST to list)
+        bundle.putString(NavigationExtraArgsConstants.OWNER_NAME, ownerName)
         findNavController(this)
             .navigate(R.id.action_mainFragment_to_repoListItemFragment, bundle)
     }
 
     private fun onResultError(error:String?) {
-        Toast.makeText(this.context, "Fetch Error "+error, Toast.LENGTH_LONG).show()
+        Toast.makeText(this.context, "Fetch Error $error", Toast.LENGTH_LONG).show()
     }
 
     override fun onPause() {

@@ -8,5 +8,6 @@ class NavigationExtraArgsConstants {
         val ISSUES_LIST = "ISSUES_LIST"
         val REPO_LIST = "REPO_LIST"
         val SELECTED_ITEM = "SELECTED_ITEM"
+        val OWNER_NAME = "OWNER_NAME"
     }
 }

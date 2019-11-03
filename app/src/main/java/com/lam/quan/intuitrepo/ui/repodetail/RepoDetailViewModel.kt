@@ -6,6 +6,8 @@ import com.lam.quan.intuitrepo.model.Issue
 import com.lam.quan.intuitrepo.model.Repo
 
 class RepoDetailViewModel : ViewModel() {
+    //TODO: Refactor this ownerName
+    lateinit var ownerName: String
     lateinit var name : String
     lateinit var description : String
     lateinit var watchCount : String

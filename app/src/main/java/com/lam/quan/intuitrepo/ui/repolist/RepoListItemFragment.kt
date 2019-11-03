@@ -32,6 +32,7 @@ class RepoListItemFragment : Fragment(),
             bundle.getParcelableArrayList<Parcelable>(NavigationExtraArgsConstants.REPO_LIST)?.let {
                 viewModel.initWithRepoList(it)
             }
+            viewModel.ownerName = bundle.getString(NavigationExtraArgsConstants.OWNER_NAME)?:""
         }
     }
 
@@ -67,6 +68,7 @@ class RepoListItemFragment : Fragment(),
     override fun onListFragmentInteraction(item: RepoListItem?) {
         val bundle = bundleOf(NavigationExtraArgsConstants.SELECTED_ITEM to arguments?.
             getParcelableArrayList<Parcelable>(NavigationExtraArgsConstants.REPO_LIST)?.get(item!!.index))
+            bundle.putString(NavigationExtraArgsConstants.OWNER_NAME, viewModel.ownerName)
         NavHostFragment.findNavController(this)
             .navigate(R.id.action_repoListItemFragment_to_repoDetailFragment, bundle)
     }

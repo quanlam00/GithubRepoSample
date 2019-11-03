@@ -8,7 +8,8 @@ import com.lam.quan.intuitrepo.model.Repo
 class RepoListViewModel : ViewModel() {
     //Implementing Live Data in viewmodel with the intent of allowing frequent data refresh feature
     //later on.
-    var repoList: MutableLiveData<List<RepoListItem>> = MutableLiveData()
+    val repoList: MutableLiveData<List<RepoListItem>> = MutableLiveData()
+    lateinit var ownerName: String
     fun initWithRepoList(list: List<Parcelable>) {
         val itemList = ArrayList<RepoListItem>()
         list.forEachIndexed{

@@ -44,6 +44,7 @@ class RepoDetailFragment : Fragment() {
             it.getParcelable<Parcelable>("SELECTED_ITEM")?.let {
                 viewModel.initWithRepo(it)
             }
+            viewModel.ownerName = it.getString(NavigationExtraArgsConstants.OWNER_NAME)?:""
         }
         issuesListButton = view.findViewById(R.id.viewIssuesListButton)
         //View Issues Button stay invisible until data is ready
@@ -70,14 +71,14 @@ class RepoDetailFragment : Fragment() {
     }
 
     //Fetching Issues List
-    val intuitRepoApi by lazy {
+    private val intuitRepoApi by lazy {
         GithubApi.create()
     }
-    var disposable: Disposable? = null
+    private var disposable: Disposable? = null
 
     private fun fetchIntuitRepoIssuesList() {
         disposable =
-            intuitRepoApi.fetchIntuitRepoIssues(viewModel.name)
+            intuitRepoApi.fetchIntuitRepoIssues(viewModel.ownerName, viewModel.name)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
@@ -94,6 +95,6 @@ class RepoDetailFragment : Fragment() {
     }
 
     private fun onResultError(error:String?) {
-        Toast.makeText(this.context, "Fetch Error "+error, Toast.LENGTH_LONG).show()
+        Toast.makeText(this.context, "Fetch Error $error", Toast.LENGTH_LONG).show()
     }
 }

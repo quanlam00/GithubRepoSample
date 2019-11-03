@@ -20,8 +20,9 @@ interface GithubApi {
     /**
      * Fetch issues list from Intuit repo with @name
      */
-    @GET("/repos/intuit/{name}/issues")
-    fun fetchIntuitRepoIssues(@Path("name") name:String): Observable<List<Issue>>
+    @GET("/repos/{ownerName}/{repoName}/issues")
+    fun fetchIntuitRepoIssues(@Path("ownerName") ownerName:String,
+                              @Path("repoName") repoName:String): Observable<List<Issue>>
 
     /**
      * Provide Implementation of Github API to any one who would depends on it.
