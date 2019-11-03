@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.NavHostFragment.findNavController
+import com.google.android.material.textfield.TextInputEditText
 import com.lam.quan.intuitrepo.R
 import com.lam.quan.intuitrepo.api.GithubApi
 import com.lam.quan.intuitrepo.model.Repo
@@ -30,7 +31,8 @@ class MainFragment : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.main_fragment, container, false)
         val fetchButton = view.findViewById<Button>(R.id.fetch_button)
-        fetchButton.setOnClickListener { fetchIntuitRepos() }
+        val repoNameInput = view.findViewById<TextInputEditText>(R.id.repo_name_input)
+        fetchButton.setOnClickListener { fetchIntuitRepos(repoNameInput.text.toString()) }
         return view
     }
 
@@ -39,14 +41,14 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
     }
 
-    val intuitRepoApi by lazy {
+    private val intuitRepoApi by lazy {
         GithubApi.create()
     }
-    var disposable: Disposable? = null
+    private var disposable: Disposable? = null
 
-    private fun fetchIntuitRepos() {
+    private fun fetchIntuitRepos(name:String) {
         disposable =
-            intuitRepoApi.fetchIntuitRepos()
+            intuitRepoApi.fetchIntuitRepos(name)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(

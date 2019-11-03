@@ -20,7 +20,7 @@ class RepoDetailViewModel : ViewModel() {
     fun initWithRepo(repo: Parcelable) {
         if (repo is Repo) {
             name = repo.name
-            description = repo.description
+            description = repo.description?:""
             watchCount = repo.watchers_count.toString()
             forkCount = repo.forks_count.toString()
             starCount = repo.stargazers_count.toString()

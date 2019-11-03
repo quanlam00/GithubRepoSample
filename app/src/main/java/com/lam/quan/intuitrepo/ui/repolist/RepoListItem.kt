@@ -7,5 +7,5 @@ data class RepoListItem(val id:String = "",
                         val description:String = "",
                         val index:Int = 0
                         ) {
-    constructor(repo:Repo, index: Int) : this(repo.id, repo.name, repo.description, index)
+    constructor(repo:Repo, index: Int) : this(repo.id, repo.name, repo.description?:"", index)
 }

@@ -16,4 +16,5 @@
     <string name="state">State</string>
     <string name="locked">Locked</string>
     <string name="title">Title:</string>
+    <string name="repo_name">Repo Name</string>
 </resources>
